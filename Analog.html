@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog clock</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    background: rgb(255, 255, 255);
+}
+.clock{  
+    position: relative;
+    margin: auto;
+    height: 40vw;
+    width: 40vw; 
+    background: url(Image/clock.png) no-repeat;
+    background-size: 100%;
+}
+
+#hour, #minute, #second{
+    position: absolute;
+    border-radius: 10px; 
+    transform-origin: bottom;
+}
+#hour{
+    width: 1.8%;
+    height: 23%;
+    top: 27.5%;
+    left: 49.35%;
+    background-color: brown; 
+}
+#minute{
+    width: 1.6%;
+    height: 26%;
+    top: 24.6%;
+    left: 49.5%;
+    background-color: rgb(38, 0, 255); 
+}
+#second{
+    width: 1%;
+    height: 31%;
+    top: 19.3%;
+    left: 49.75%; 
+    background-color: rgb(89, 0, 255); 
+}
+h2{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 24px;
+    color: rgb(73, 0, 141);
+    text-transform: uppercase ;
+    text-shadow:  2px 2px 2px rgb(246, 169, 169);
+}
+p{
+    text-align: center;
+    font-family: monospace;
+    font-size: smaller;
+    font-weight: bolder;
+    text-shadow: 1px 1px 2px rgb(0, 255, 85), 0 0 1em rgb(57, 57, 200), 0 0 0.2em blue;
+}
+    </style>
+    <link rel="apple-touch-icon" sizes="180x180" href="Image/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Image/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Image/favicon/favicon-16x16.png">
+    <link rel="manifest" href="Image/favicon/site.webmanifest">
+</head>
+<body>
+
+    <div class="clock">
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+    </div> 
+    <h2>Analog Wall-clock</h2>
+    <p>Time never stops</p>
+    <script>
+        setInterval(() => {
+    d = new Date();
+    htime = d.getHours();
+    mtime = d.getMinutes();
+    stime = d.getSeconds();
+    hrotation = 30*htime + mtime/2;
+    mrotation = 6*mtime;
+    srotation = 6*stime;
+
+   hour.style.transform = `rotate(${hrotation}deg)` 
+   minute.style.transform = `rotate(${mrotation}deg)` 
+   second.style.transform = `rotate(${srotation}deg)` 
+},1000);
+    </script>
+</body>
+</html>
